@@ -2,7 +2,11 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { CountryModule } from './country/country.module';
-
+import { HolidayModule } from './holiday/holiday.module';
+import { Holiday } from './holiday/holiday.entity';
+import { CalendarModule } from './calendar/calendar.module';
+import { UserModule } from './user/user.module';
+import { Calendar } from './calendar/calendar.entity';
 
 @Module({
     imports: [
@@ -22,10 +26,13 @@ import { CountryModule } from './country/country.module';
             password: process.env.PG_PASSWORD,
             database: process.env.PG_DATABASE,
             synchronize: true,
-            models: [],
+            models: [Holiday, Calendar],
             autoLoadModels: true,
         }),
         CountryModule,
+        HolidayModule,
+        CalendarModule,
+        UserModule,
     ],
     controllers: [],
     providers: [],
