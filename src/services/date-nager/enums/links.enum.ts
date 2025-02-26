@@ -1,4 +1,4 @@
 export enum DateNagerLinksEnum {
-    AvailableCountries = 'AvailableCountries',
-    CountryInfo = 'CountryInfo',
+    AVAILABLE_COUNTRIES = 'AvailableCountries',
+    COUNTRY_INFO = 'CountryInfo',
 }

@@ -8,7 +8,7 @@ import { ICountryInfo } from './interfaces/country-info.interface';
 export class DateNagerService {
     async getCountries() {
         try {
-            const response = await axios.get(process.env.DATE_NAGER_API_URL + DateNagerLinksEnum.AvailableCountries);
+            const response = await axios.get(process.env.DATE_NAGER_API_URL + DateNagerLinksEnum.AVAILABLE_COUNTRIES);
             const countries: ICountry = response?.data || [];
             return countries;
         } catch (error) {
@@ -18,7 +18,9 @@ export class DateNagerService {
 
     async getCountryInfo(countryCode: string) {
         try {
-            const response = await axios.get(process.env.DATE_NAGER_API_URL + DateNagerLinksEnum.CountryInfo + '/' + countryCode);
+            const response = await axios.get(
+                process.env.DATE_NAGER_API_URL + DateNagerLinksEnum.COUNTRY_INFO + '/' + countryCode,
+            );
             const countries: ICountryInfo = response?.data || null;
             return countries;
         } catch (error) {
