@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
+import { CountryModule } from './country/country.module';
+
 
 @Module({
     imports: [
@@ -12,7 +14,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
             },
             timezone: '+02:00',
             dialect: 'postgres',
-            logging: true,
+            logging: false,
             protocol: 'postgres',
             host: process.env.PG_HOST,
             port: Number(process.env.PG_PORT),
@@ -23,6 +25,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
             models: [],
             autoLoadModels: true,
         }),
+        CountryModule,
     ],
     controllers: [],
     providers: [],
